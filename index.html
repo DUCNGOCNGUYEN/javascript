@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>問題</h1>
+    <p>最も面積が大きい「県」何県でしょう？</p>
+    <button id="btn" onclick="show()">ヒントを見る</button>
+    <p id="message">(注意)北海道は「県」ではありません。</p>
+    <script>
+        let clickTime = 0;
+        function show(){
+            clickTime++;
+            
+            switch (clickTime){
+                case 1:
+                document.getElementById('btn').textContent = 'ヒントを見る';
+                document.getElementById('message').textContent = '東北地方にあります。';
+                    break;
+                case 2:
+                document.getElementById('btn').textContent = '答えを見る';
+                document.getElementById('message').textContent = '(注意)東京は「県」ではありません.';
+                break;
+                case 3:
+                document.getElementById('btn').textContent = '地図を見る';
+                document.getElementById('message').textContent = '岩手県';
+                break;
+                case 4:
+                document.getElementById('btn').textContent = '元に戻す';
+                let DUC = document.getElementById('message');
+                DUC.innerHTML = '<span style="color:red;">岩手県。</span><br><img src="images/iwate.png" alt="">';
+                
+                break;
+                case 5:
+                document.getElementById('btn').textContent = 'ヒントを見る';
+                document.getElementById('message').textContent = '(注意)北海道は「県」ではありません。';
+                clickTime -= 4;
+                
+            }
+            
+        }
+
+    </Script>
+</body>
+</html>
